@@ -34,7 +34,7 @@ public class CrearProductoServiceTest {
         verify(productoRepository).guardar(any());
     }
 
-    //Test 2 - Debe lanzar un error si el producto ya existe
+    //Test 2 - Debe lanzar un error si el producto ya existe (IMPLEMENTAR)
 //    void debeLanzarErrorSiProductoYaExiste(){
 //        //Given
 //
@@ -42,4 +42,15 @@ public class CrearProductoServiceTest {
 //
 //        //Then
 //    }
+
+    @Test
+    void debeCrearProductoSiNombreNoExistedELETE(){
+        //Given
+        CrearProductoCommand command=new CrearProductoCommand("Lapicero",2.5);
+        when(productoRepository.buscarPorNombre(command.getNombre())).thenReturn(Optional.empty());
+        //When
+        handler.execute(command);
+        //Then
+        verify(productoRepository).guardar(any());
+    }
 }
