@@ -1,12 +1,12 @@
-package com.ubicuosoft.project_tdd_vertical_slice1.features;
+package com.ubicuosoft.project_tdd_vertical_slice1.features.crearProducto;
 
+import com.ubicuosoft.project_tdd_vertical_slice1.features.crearProducto.CrearProductoCommand;
+import com.ubicuosoft.project_tdd_vertical_slice1.features.crearProducto.CrearProductoService;
+import com.ubicuosoft.project_tdd_vertical_slice1.features.crearProducto.ProductoRepository;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.bean.override.mockito.MockitoBean;
-import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
 
 import java.util.Optional;
 
