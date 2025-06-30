@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CrearProductoService {
 
-    private  ProductoRepository productoRepository;
+    private ProductoRepository productoRepository;
 
     public CrearProductoService(ProductoRepository productoRepository) {
         this.productoRepository = productoRepository;
@@ -22,13 +22,13 @@ public class CrearProductoService {
     }
 
     private void verficarExistenciaDelProducto(CrearProductoCommand command) {
+//        if (productoRepository.buscarPorNombre(command.getNombre()).isPresent()) {
+//            throw new IllegalArgumentException("El producto ya existe");
+//        }
+
         productoRepository.buscarPorNombre(command.getNombre())
                 .ifPresent(producto -> {
-                    try {
-                        throw new ProductoYaExisteException(command.getNombre());
-                    } catch (ProductoYaExisteException e) {
-                        e.printStackTrace();
-                    }
+                    throw new ProductoYaExisteException(command.getNombre());
                 });
     }
 }
