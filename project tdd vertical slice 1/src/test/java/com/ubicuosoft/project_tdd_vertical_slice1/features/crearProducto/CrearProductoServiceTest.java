@@ -13,37 +13,40 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-
 public class CrearProductoServiceTest {
-    //AUDITAR TEST
+    //AUDITORIA DE TEST
+    //Test 1 - Deberia crear producto si el nombre del mismo no existe
+    //Test 2 - Deberia lanzar un error si el producto ya existe
+
     @MockBean
     private ProductoRepository productoRepository;
     @Autowired
-    private CrearProductoService handler;
+    private CrearProductoService crearProductoService;
 
-    //Test 1 - Debe crear producto si el nombre del mismo no existe
+    //Test 1 - Deberia crear producto si el nombre del mismo no existe
     @Test
-    void debeCrearProductoSiNombreNoExiste(){
+    void deberiaCrearProductoSiNombreNoExiste(){
         //Given (Contexto inicial)
-        CrearProductoCommand command=new CrearProductoCommand("Lapicero",2.5);
-        when(productoRepository.buscarPorNombre(command.getNombre())).thenReturn(Optional.empty());
+        CrearProductoCommand crearProductoCommand=new CrearProductoCommand("Lapicero",2.5);
+        when(productoRepository.buscarPorNombre(crearProductoCommand.getNombre()))
+                .thenReturn(Optional.empty());
         //When (Accion del usuario)
-        handler.execute(command);
+        crearProductoService.execute(crearProductoCommand);
         //Then (Resultado esperado)
         verify(productoRepository).guardar(any());
     }
 
-    //Test 2 - Debe lanzar un error si el producto ya existe
+    //Test 2 - Deberia lanzar un error si el producto ya existe
     @Test
-    void debeLanzarErrorSiProductoYaExiste(){
+    void deberiaLanzarErrorSiProductoYaExiste(){
         //Given (Contexto inicial)
         ProductoYaExisteException exception = null;
-        CrearProductoCommand command=new CrearProductoCommand("Lapicero", 2.5);
-        when(productoRepository.buscarPorNombre(command.getNombre()))
+        CrearProductoCommand crearProductoCommand=new CrearProductoCommand("Lapicero", 2.5);
+        when(productoRepository.buscarPorNombre(crearProductoCommand.getNombre()))
                 .thenReturn(Optional.of(new Producto("Lapicero", 2.5)));
         //When (Accion del usuario)
         try{
-            handler.execute(command);
+            crearProductoService.execute(crearProductoCommand);
             fail("Esperaba que se lanzara ProductoYaExisteException");
         }catch (ProductoYaExisteException e){
             exception = e;
