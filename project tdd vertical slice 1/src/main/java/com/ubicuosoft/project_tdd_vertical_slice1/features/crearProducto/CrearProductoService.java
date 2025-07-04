@@ -1,10 +1,12 @@
 package com.ubicuosoft.project_tdd_vertical_slice1.features.crearProducto;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CrearProductoService {
 
+    @Autowired
     private ProductoRepository productoRepository;
 
     public CrearProductoService(ProductoRepository productoRepository) {
