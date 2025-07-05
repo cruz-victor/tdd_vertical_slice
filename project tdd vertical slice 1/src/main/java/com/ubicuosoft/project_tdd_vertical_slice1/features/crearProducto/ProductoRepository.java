@@ -8,4 +8,5 @@ public interface ProductoRepository {
     Optional<Producto> buscarPorNombre(Object nombre);
     Optional<Producto> buscarPorId(long id);
     List<Producto> listar();
+    void eliminar(long id);
 }
