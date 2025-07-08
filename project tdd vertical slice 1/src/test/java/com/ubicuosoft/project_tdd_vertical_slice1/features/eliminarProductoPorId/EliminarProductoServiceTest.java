@@ -29,15 +29,4 @@ public class EliminarProductoServiceTest {
         //Then (Resultado esperado)
         verify(productoRepository, times(1)).eliminar(eliminarProductoCommand.getId());
     }
-
-    @Test
-    void deberiaEliminarProductoPorIdv2(){
-        //Given (Contexto inicial)
-        EliminarProductoCommand eliminarProductoCommand=new EliminarProductoCommand(10L);
-        doNothing().when(productoRepository).eliminar(eliminarProductoCommand.getId());
-        //When (Accion del usuario)
-        eliminarProductoService.execute(eliminarProductoCommand.getId());
-        //Then (Resultado esperado)
-        verify(productoRepository, times(1)).eliminar(eliminarProductoCommand.getId());
-    }
 }
