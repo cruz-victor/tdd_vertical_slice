@@ -1,4 +1,4 @@
-package com.ubicuosoft.project_tdd_vertical_slice1.features.crearProducto;
+package com.ubicuosoft.project_test_v0.features.crearProducto;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +20,12 @@ public class CrearProductoServiceTest {
     //Test 1 - Deberia crear producto si el nombre del mismo no existe
     //Test 2 - Deberia lanzar un error si el producto ya existe
 
-    @MockBean //SpringBootTest
-    //@Mock //Mockito
+    @MockBean
+    //@Mock
     private ProductoRepository productoRepository;
 
-    //@InjectMocks //Mockito
-    @Autowired //SpringBootTest
+    //@InjectMocks
+    @Autowired
     private CrearProductoService crearProductoService;
 
     //Test 1 - Deberia crear producto si el nombre del mismo no existe
