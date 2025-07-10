@@ -8,7 +8,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @ExtendWith(MockitoExtension.class)
-public class EjemplosTest {
+public class CalculadoraTest {
 
     @InjectMocks
     private CalculadoraService calculadoraService;
@@ -23,5 +23,4 @@ public class EjemplosTest {
         //THEN
         assertThat(resultado).isEqualTo(15);
     }
-
 }
