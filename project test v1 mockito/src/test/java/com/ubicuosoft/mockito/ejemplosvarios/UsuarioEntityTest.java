@@ -69,13 +69,14 @@ public class UsuarioEntityTest {
         Set<ConstraintViolation<Usuario>> violaciones = validator.validate(usuario);
         //---THEN
         //El test es valido cuando se comprueba que los campos nombre y email cumplen con la restricciones.
+        //Validar que todos los campos sean validos. No hay ninguna violacion.
+        assertThat(violaciones).isEmpty();
         //Validar que el campo nombre no tiene errores.
         assertThat(violaciones)
                 .noneMatch(v -> v.getPropertyPath().toString().equals("nombre"));
         //Validar que el campo email no tiene errores.
         assertThat(violaciones)
                 .noneMatch(v -> v.getPropertyPath().toString().equals("email"));
-        //Validar que todos los campos sean validos. No hay ninguna violacion.
-        assertThat(violaciones).isEmpty();
+
     }
 }
