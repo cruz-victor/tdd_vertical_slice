@@ -2,7 +2,6 @@ package com.ubicuosoft.mockito.ejemplosvarios;
 
 import org.junit.jupiter.api.Test;
 
-import javax.swing.text.html.Option;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
