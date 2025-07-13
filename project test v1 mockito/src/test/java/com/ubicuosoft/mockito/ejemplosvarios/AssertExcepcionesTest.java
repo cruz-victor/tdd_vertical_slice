@@ -54,7 +54,18 @@ public class AssertExcepcionesTest {
         //doNothing().when(usuarioRepository).deleteById(anyLong());
 
         assertThatThrownBy(() -> usuarioService.eliminarPorId(null))
-        .isInstanceOf(IllegalArgumentException.class)
-        .hasMessage("ID no puede ser null");
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("ID no puede ser null");
+    }
+
+    @Test
+    void deberiaLanzarExcepcionConCausa() {
+        Throwable causa = new NullPointerException("detalle");
+
+        assertThatThrownBy(() -> {
+            throw new RuntimeException("fallo", causa);
+        })
+                .hasCauseInstanceOf(NullPointerException.class)
+                .hasRootCauseMessage("detalle");
     }
 }
