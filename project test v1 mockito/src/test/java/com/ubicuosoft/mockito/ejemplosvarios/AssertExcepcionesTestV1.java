@@ -8,7 +8,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.assertj.core.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-public class AssertExcepcionesTest {
+public class AssertExcepcionesTestV1 {
 //    @Mock
 //    private UsuarioRepository usuarioRepository;
 
