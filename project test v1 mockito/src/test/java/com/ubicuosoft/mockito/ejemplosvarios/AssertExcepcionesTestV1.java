@@ -9,6 +9,14 @@ import static org.assertj.core.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 public class AssertExcepcionesTestV1 {
+    /*Vocabulario*/
+    //throw = lanzar = Palabra que lanza una excepcion. Ej. throw new Exception()
+    //thrown = lanzado = Se refiere a la excepcion que ya fue lanzado.
+    //throwable = lanzable = Clase base de todas las excepciones y errores.
+    //catch = atrapar = Atrapar o capturar una excepcion con catch(Throwable t).
+    //catchTrowable = Atrapar la excepcion = Captura una excepcion lanzada.
+    //assertThatThrownBy() = Afirmar que fue lanzada por = Afirma el ressltado de una excepcion.
+
 //    @Mock
 //    private UsuarioRepository usuarioRepository;
 
