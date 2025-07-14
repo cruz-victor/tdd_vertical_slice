@@ -21,7 +21,7 @@ public class UsuarioTest {
     @Test
     void deberiaDevolverUsuarioPorId(){
         //GIVEN
-        Usuario usuarioEsperado=new Usuario(10L,"Victor","victor@gmail.com");
+        Usuario usuarioEsperado=new Usuario(10L,"Victor","victor@gmail.com",15);
         when(usuarioRepository.findById(usuarioEsperado.getId()))
                 .thenReturn(Optional.of(usuarioEsperado));
         //WHEN

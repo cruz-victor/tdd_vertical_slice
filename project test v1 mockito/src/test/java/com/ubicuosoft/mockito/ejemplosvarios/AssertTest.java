@@ -61,7 +61,7 @@ public class AssertTest {
 
     @Test
     void deberiaAfirmarObjetosPersonalizados() {
-        Usuario usuario = new Usuario(1L, "Victor", "victor@gmail.com");
+        Usuario usuario = new Usuario(1L, "Victor", "victor@gmail.com",15);
         assertThat(usuario.getNombre()).isEqualTo("Victor");
         assertThat(usuario.getEmail()).contains("@");
     }

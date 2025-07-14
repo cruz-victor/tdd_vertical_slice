@@ -24,4 +24,5 @@ public class Usuario {
     private String nombre;
     @Email(message = "El formato del correo no es válido.")
     private String email;
+    private int edad;
 }

@@ -21,7 +21,8 @@ public class UsuarioRepositoryTest {
         //---GIVEN
         String nombre="Victor";
         String email="victor@gmail.com";
-        Usuario usuario = new Usuario(null, nombre, email);
+        int edad=15;
+        Usuario usuario = new Usuario(null, nombre, email,edad);
         //---WHEN
         Usuario usuarioGuardado=usuarioRepository.save(usuario);
         //---THEN

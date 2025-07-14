@@ -27,7 +27,8 @@ public class UsuarioControllerTest {
         long id = 10L;
         String nombre = "Victor";
         String email = "victor@gmail.com";
-        Usuario usuarioEsperado = new Usuario(id, nombre, email);
+        int edad=15;
+        Usuario usuarioEsperado = new Usuario(id, nombre, email,edad);
         when(usuarioService.obtenerUsuarioPorId(id))
                 .thenReturn(usuarioEsperado);
         // --- WHEN
