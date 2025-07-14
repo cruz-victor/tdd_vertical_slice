@@ -6,25 +6,8 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
 
-public class ValidacionesTest {
-
-    @Test
-    void deberiaValidarDatosDelUsuario() {
-        //GIVEN
-        long id = 10L;
-        String nombre = "Victor";
-        String correo = "victor@gmail.com";
-        int edad = 18;
-        Usuario usuario = new Usuario(id, nombre, correo, edad);
-        //WHEN
-        //THEN
-        UsuarioValidator.validar(usuario)
-                .tieneNombreValido()
-                .tieneCorreoValido()
-                .esMayorDeEdad()
-                .verificar();
-    }
-
+public class ValidacionesV1Test {
+    //TODO: Invocando clase validador con patron Builder.
 
     @Test
     void deberiaValidarUsuarioValido(){

@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.catchThrowable;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @ExtendWith(MockitoExtension.class)
-public class AssertExcepcionesTestV2 {
+public class AssertExcepcionesV2Test {
 
     @InjectMocks
     private UsuarioService usuarioService;

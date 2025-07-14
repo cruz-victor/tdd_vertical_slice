@@ -8,7 +8,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.assertj.core.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-public class AssertExcepcionesTestV1 {
+public class AssertExcepcionesV1Test {
     /*Vocabulario*/
     //throw = lanzar = Palabra que lanza una excepcion. Ej. throw new Exception()
     //thrown = lanzado = Se refiere a la excepcion que ya fue lanzado.
