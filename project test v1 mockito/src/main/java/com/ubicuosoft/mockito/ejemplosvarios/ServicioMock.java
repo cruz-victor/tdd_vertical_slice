@@ -13,6 +13,7 @@ public class ServicioMock {
 
     void procesar(){
         repositorio.guardar();
+        repositorio.eliminar(10L);//*
     }
 
     void registrar(String nombre){

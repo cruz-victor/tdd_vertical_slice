@@ -1,5 +1,7 @@
 package com.ubicuosoft.mockito.ejemplosvarios;
 
+import java.util.Optional;
+
 interface RepositorioMock {
     String obtenerNombre();
     int obtenerEdad();
@@ -8,4 +10,5 @@ interface RepositorioMock {
     void guardar(String nombre);
     void eliminar(Long id);
     String buscar(Long id);
+    Optional<String> buscarOptional(Long id);
 }
