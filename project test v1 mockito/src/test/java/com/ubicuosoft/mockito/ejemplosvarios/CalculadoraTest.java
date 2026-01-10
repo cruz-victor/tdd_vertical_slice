@@ -15,12 +15,12 @@ public class CalculadoraTest {
 
     @Test
     void deberiaSumarDosNumeros(){
-        //GIVEN
+        //---Given
         int numero1=10;
         int numero2=5;
-        //WHEN
+        //---When
         int resultado=calculadoraService.sumar(numero1,numero2);
-        //THEN
+        //---Then
         assertThat(resultado).isEqualTo(15);
     }
 }

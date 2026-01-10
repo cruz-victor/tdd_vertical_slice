@@ -19,16 +19,16 @@ public class FacturaTest {
 
     @Test
     void deberiaCalcularTotalConImpuesto() {
-        //GIVEN
+        //---Given
         int subtotal = 100;
         int impuesto = 15;
-        when(calculadoraService.sumar(subtotal,impuesto))
-                .thenReturn(115);
 
-        //WHEN
+        when(calculadoraService.sumar(subtotal,impuesto)).thenReturn(115);
+
+        //---When
         int total = facturaService.calcularTotalConImpuesto(subtotal, impuesto);
 
-        //THEN
+        //---Then
         assertThat(total).isEqualTo(115);
 
     }

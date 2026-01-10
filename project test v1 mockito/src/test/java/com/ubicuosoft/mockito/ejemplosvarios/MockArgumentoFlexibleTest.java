@@ -17,8 +17,11 @@ public class MockArgumentoFlexibleTest {
 
     @Test
     void deberiaRetornarValorParaCualquierId(){
+        //---Given
         when(repositorio.buscar(anyLong())).thenReturn("OK");
+        //---When
         String resultado=repositorio.buscar(222L);
+        //---Then
         assertThat(resultado).isEqualTo("OK");
     }
 }
