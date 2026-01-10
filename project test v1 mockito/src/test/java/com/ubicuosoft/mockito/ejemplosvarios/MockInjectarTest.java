@@ -11,17 +11,18 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class MockInjectarTest {
-    @Mock
-    private RepositorioMock repositorio;
-    @InjectMocks
+    @InjectMocks //Crea un objeto real e injecta dobles falsos
     private ServicioMock servicio;
+    @Mock //Crea un doble falso.
+    private RepositorioMock repositorio;
 
     @Test
-    void deberiaSaludarConNombreMockeado(){
+    void deberiaSaludarConNombreMockeado() {
+        //---Given
         when(repositorio.obtenerNombre()).thenReturn("Grace");
-        String saludo=servicio.saludar();
+        //---When
+        String saludo = servicio.saludar();
+        //---Then
         assertThat(saludo).isEqualTo("Hola Grace");
     }
-
-
 }

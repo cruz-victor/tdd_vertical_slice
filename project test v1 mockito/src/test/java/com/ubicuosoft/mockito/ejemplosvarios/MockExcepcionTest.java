@@ -16,15 +16,15 @@ public class MockExcepcionTest {
 
     @Test
     void deberiaLanzarExcepcionDesdeMock() {
+        //---Given
         when(repositorio.buscar(99L)).thenThrow(new RuntimeException("No encontrado"));
-
+        //---When
         Throwable lanzado = catchThrowable(() -> {
             repositorio.buscar(99L);
         });
-
+        //---Then
         assertThat(lanzado)
                 .isInstanceOf(RuntimeException.class)
                 .hasMessageContaining("No encontrado");
-
     }
 }

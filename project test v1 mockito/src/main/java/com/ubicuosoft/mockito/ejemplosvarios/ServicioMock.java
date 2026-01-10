@@ -7,16 +7,16 @@ public class ServicioMock {
         this.repositorio = repositorio;
     }
 
-    String saludar(){
-        return "Hola "+repositorio.obtenerNombre();
+    String saludar() {
+        return "Hola " + repositorio.obtenerNombre();
     }
 
-    void procesar(){
+    void procesar() {
         repositorio.guardar();
         repositorio.eliminar(10L);//*
     }
 
-    void registrar(String nombre){
+    void registrar(String nombre) {
         repositorio.guardar(nombre);
     }
 }

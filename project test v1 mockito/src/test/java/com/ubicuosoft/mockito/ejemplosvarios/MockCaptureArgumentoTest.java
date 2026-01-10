@@ -15,15 +15,18 @@ import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 public class MockCaptureArgumentoTest {
-    @Mock
-    private RepositorioMock repositorio;
     @InjectMocks
     private ServicioMock servicio;
     @Captor
     private ArgumentCaptor<String> nombreCaptor;
+    @Mock
+    private RepositorioMock repositorio;
 
     @Test
     void deberiaCapturarArgumento() {
+        //---Given
+        //---When
+        //---Then
         servicio.registrar("Victor");
         verify(repositorio).guardar(nombreCaptor.capture());//Captura el parametro del metodo registrar(parametro){repositorio.guardar(parametro);}
         assertThat(nombreCaptor.getValue()).isEqualTo("Victor");
