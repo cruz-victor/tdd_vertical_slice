@@ -25,6 +25,9 @@ public class AssertExcepcionesV1Test {
 
     @Test
     void deberiaLanzarExcepcion() {
+        //---Given
+        //---When
+        //---Then
         assertThatThrownBy(
                 () -> {
                     throw new IllegalArgumentException("Nombre invalido");
@@ -36,6 +39,9 @@ public class AssertExcepcionesV1Test {
 
     @Test
     void deberiaLanzarExcepcionPorNull() {
+        //---Given
+        //---When
+        //---Then
         assertThatThrownBy(
                 () -> {
                     throw new NullPointerException("Falta el email");
@@ -47,11 +53,15 @@ public class AssertExcepcionesV1Test {
 
     @Test
     void deberiaLanzarExcepcionConCatchThrowable() {
+        //---Given
         Throwable throwable = catchThrowable(
                 () -> {
                     throw new IllegalStateException("Error en estado");
                 }
         );
+        //---When
+
+        //---Then
         assertThat(throwable)
                 .isInstanceOf(IllegalStateException.class)
                 .hasMessageContaining("estado");
@@ -59,8 +69,9 @@ public class AssertExcepcionesV1Test {
 
     @Test
     void deberiaLanzarExcepcionesSiIdEsNull() {
-        //doNothing().when(usuarioRepository).deleteById(anyLong());
-
+        //---Given
+        //---When
+        //---Then
         assertThatThrownBy(() -> usuarioService.eliminarPorId(null))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("ID no puede ser null");
@@ -68,6 +79,9 @@ public class AssertExcepcionesV1Test {
 
     @Test
     void deberiaLanzarExcepcionConCausa() {
+        //---Given
+        //---When
+        //---Then
         Throwable causa = new NullPointerException("detalle");
 
         assertThatThrownBy(() -> {

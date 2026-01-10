@@ -11,12 +11,14 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @ExtendWith(MockitoExtension.class)
 public class AssertExcepcionesV2Test {
-
     @InjectMocks
     private UsuarioService usuarioService;
 
     @Test
     void deberiaVerificarMensaje_conAssertThatThrownBy() {
+        //---Given
+        //---When
+        //---Then
         assertThatThrownBy(() -> {
             throw new IllegalArgumentException("ID invalido");
         })
@@ -26,10 +28,13 @@ public class AssertExcepcionesV2Test {
 
     @Test
     void deberiaVerificarMensaje_conCatchThrowable() {
+        //---Given
         Throwable lanzado = catchThrowable(() -> {
             throw new IllegalArgumentException("ID invalido");
         });
+        //---When
 
+        //---Then
         assertThat(lanzado)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("ID invalido");
@@ -37,6 +42,9 @@ public class AssertExcepcionesV2Test {
 
     @Test
     void deberiaVerificarMensajeParcial_conAssertThatThrownBy() {
+        //---Given
+        //---When
+        //---Then
         assertThatThrownBy(() -> {
             throw new NullPointerException("Falta el nombre");
         })
@@ -46,26 +54,35 @@ public class AssertExcepcionesV2Test {
 
     @Test
     void deberiaVerificarMensajeParcial_conCatchThrowable() {
-        Throwable thown= catchThrowable(()->{
+        //---Given
+        Throwable thown = catchThrowable(() -> {
             throw new NullPointerException("Falta el nombre");
         });
+        //---When
 
+        //---Then
         assertThat(thown)
                 .isInstanceOf(NullPointerException.class)
                 .hasMessageContaining("nombre");
     }
 
     @Test
-    void deberiaVerificarMensajeDeMetodoReal_conAssertThatThrownBy(){
-        assertThatThrownBy(()->usuarioService.eliminarPorId(null))
+    void deberiaVerificarMensajeDeMetodoReal_conAssertThatThrownBy() {
+        //---Given
+        //---When
+        //---Then
+        assertThatThrownBy(() -> usuarioService.eliminarPorId(null))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("ID no puede ser null");
     }
 
     @Test
-    void deberiaVerificarMensajeDeMetodoReal_conCatchThrowable(){
-        Throwable lanzado=catchThrowable(()->usuarioService.eliminarPorId(null));
+    void deberiaVerificarMensajeDeMetodoReal_conCatchThrowable() {
+        //---Given
+        Throwable lanzado = catchThrowable(() -> usuarioService.eliminarPorId(null));
+        //---When
 
+        //---Then
         assertThat(lanzado)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("ID no puede ser null");
