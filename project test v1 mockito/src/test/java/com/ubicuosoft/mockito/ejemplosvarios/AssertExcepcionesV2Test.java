@@ -25,6 +25,15 @@ public class AssertExcepcionesV2Test {
     }
 
     @Test
+    void deberiaVerificarMensaje_conAssertThatThrownBy2() {
+        assertThatThrownBy(() -> {
+            throw new IllegalArgumentException("ID invalido");
+        })
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("ID invalido");
+    }
+
+    @Test
     void deberiaVerificarMensaje_conCatchThrowable() {
         Throwable lanzado = catchThrowable(() -> {
             throw new IllegalArgumentException("ID invalido");
