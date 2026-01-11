@@ -16,13 +16,14 @@ public class MockMetodosVoidTest {
 
     @Test
     void deberiaLanzarExcepcionAlEliminar() {
+        //---Given
         doThrow(new IllegalArgumentException("Id invalido"))
                 .when(repositorio).eliminar(999L);
-
+        //---When
         Throwable lanzado = catchThrowable(() -> {
             repositorio.eliminar(999L);
         });
-
+        //---Then
         assertThat(lanzado)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("invalido");

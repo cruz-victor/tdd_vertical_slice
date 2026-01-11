@@ -23,29 +23,42 @@ public class MockVerificarLlamadaTest {
 
     @Test
     void deberiaLlamarAlMetodoGuardar() {
+        //---Given
+
+        //---When
         servicio.procesar();
+        //---Then
         verify(repositorio).guardar();
     }
 
     @Test
     void deberiaGuardarDosVeces(){
+        //---Given
+
+        //---When
         servicio.procesar();
         servicio.procesar();
+        //---Then
         verify(repositorio,times(2)).guardar();
     }
 
     @Test
     void deberiaLlamarGuardarConNombreEspecifico(){
+        //---Given
+
+        //---When
         servicio.registrar("Victor");
+        //---Then
         verify(repositorio).guardar(eq("Victor"));
     }
 
     @Test
     void deberiaVerificarOrdeLlamadas(){
+        //---Given
         InOrder inOrder= Mockito.inOrder(repositorio);
-
+        //---When
         servicio.procesar();
-
+        //---Then
         inOrder.verify(repositorio).guardar();
         inOrder.verify(repositorio).eliminar(anyLong());
     }

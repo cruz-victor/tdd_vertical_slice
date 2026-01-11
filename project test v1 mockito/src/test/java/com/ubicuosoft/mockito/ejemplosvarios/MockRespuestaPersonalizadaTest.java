@@ -2,7 +2,6 @@ package com.ubicuosoft.mockito.ejemplosvarios;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -17,13 +16,16 @@ public class MockRespuestaPersonalizadaTest {
 
     @Test
     void deberiaSumarDinamicamente() {
+        //---Given
         when(repositorio.sumar(anyInt(), anyInt()))
                 .thenAnswer(fun -> {
                     int a = fun.getArgument(0);
                     int b = fun.getArgument(1);
                     return a + b;
                 });
+        //---When
         int resultado = repositorio.sumar(3, 7);
+        //---Then
         assertThat(resultado).isEqualTo(10);
     }
 }
