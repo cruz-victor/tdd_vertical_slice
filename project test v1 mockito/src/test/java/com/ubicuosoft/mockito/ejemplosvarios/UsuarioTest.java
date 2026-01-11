@@ -20,13 +20,13 @@ public class UsuarioTest {
 
     @Test
     void deberiaDevolverUsuarioPorId(){
-        //GIVEN
+        //---GIVEN
         Usuario usuarioEsperado=new Usuario(10L,"Victor","victor@gmail.com",15);
         when(usuarioRepository.findById(usuarioEsperado.getId()))
                 .thenReturn(Optional.of(usuarioEsperado));
-        //WHEN
+        //---WHEN
         Usuario resultado=usuarioService.obtenerUsuarioPorId(usuarioEsperado.getId());
-        //THEN
+        //---THEN
         assertThat(resultado.getId()).isEqualTo(10L);
         assertThat(resultado.getNombre()).isEqualTo("Victor");
         assertThat(resultado.getEmail()).isEqualTo("victor@gmail.com");

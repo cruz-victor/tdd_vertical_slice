@@ -77,6 +77,5 @@ public class UsuarioEntityTest {
         //Validar que el campo email no tiene errores.
         assertThat(violaciones)
                 .noneMatch(v -> v.getPropertyPath().toString().equals("email"));
-
     }
 }

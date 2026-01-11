@@ -16,24 +16,24 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(UsuarioController.class)
 public class UsuarioControllerTest {
-    @Autowired
+    @Autowired //Similar to InjectMock
     private MockMvc mockMvc;
-    @MockBean
+    @MockBean //Similar to Mock
     private UsuarioService usuarioService;
 
     @Test
     void deberiaObtenerUsuarioPorId() throws Exception {
-        // --- GIVEN
+        //--- GIVEN
         long id = 10L;
         String nombre = "Victor";
         String email = "victor@gmail.com";
-        int edad=15;
-        Usuario usuarioEsperado = new Usuario(id, nombre, email,edad);
+        int edad = 15;
+        Usuario usuarioEsperado = new Usuario(id, nombre, email, edad);
         when(usuarioService.obtenerUsuarioPorId(id))
                 .thenReturn(usuarioEsperado);
-        // --- WHEN
+        //--- WHEN
         ResultActions respuesta = mockMvc.perform(get("/usuarios/{id}", id));
-        // --- THEN
+        //--- THEN
         respuesta
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.nombre").value("Victor"))

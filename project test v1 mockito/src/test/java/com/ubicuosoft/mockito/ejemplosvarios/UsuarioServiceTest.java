@@ -20,18 +20,18 @@ public class UsuarioServiceTest {
     private UsuarioService usuarioService;
 
     @Test
-    void deberiaRetornarUsuarioCuandoExisteId(){
-        // --- GIVEN
-        long id=10;
-        String nombre="Victor";
-        String email="victor@gmail.com";
-        int edad=15;
-        Usuario usuarioEsperado=new Usuario(id,nombre,email, edad);
+    void deberiaRetornarUsuarioCuandoExisteId() {
+        //---GIVEN
+        long id = 10;
+        String nombre = "Victor";
+        String email = "victor@gmail.com";
+        int edad = 15;
+        Usuario usuarioEsperado = new Usuario(id, nombre, email, edad);
         when(usuarioRepository.findById(id))
                 .thenReturn(Optional.of(usuarioEsperado));
-        // --- WHEN
-        Usuario resultado=usuarioService.obtenerUsuarioPorId(id);
-        // --- THEN
+        //---WHEN
+        Usuario resultado = usuarioService.obtenerUsuarioPorId(id);
+        //---THEN
         assertThat(resultado.getId()).isEqualTo(10L);
         assertThat(resultado.getNombre()).isEqualTo("Victor");
         assertThat(resultado.getEmail()).isEqualTo("victor@gmail.com");
